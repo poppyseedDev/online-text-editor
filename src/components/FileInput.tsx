@@ -5,7 +5,7 @@ interface FileInputProps {
 }
 
 const FileInput: FC<FileInputProps> = ({ onChange }) => (
-  <input type="file" accept=".doc" onChange={onChange} />
+  <input type="file" accept=".docx" onChange={onChange} />
 );
 
 export default FileInput;

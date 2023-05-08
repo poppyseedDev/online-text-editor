@@ -21,7 +21,8 @@ const QuillEditor: FC<QuillEditorProps> = ({ content, onChange }) => {
           quillRef.current = new Quill(editorRef.current, {
             theme: 'snow',
           });
-          quillRef.current.setContents(content);
+
+          quillRef.current.clipboard.dangerouslyPasteHTML(content);
 
           quillRef.current.on('text-change', () => {
             onChange(quillRef.current.root.innerHTML);
@@ -33,7 +34,7 @@ const QuillEditor: FC<QuillEditorProps> = ({ content, onChange }) => {
 
   useEffect(() => {
     if (quillRef.current) {
-      quillRef.current.setContents(content);
+      quillRef.current.clipboard.dangerouslyPasteHTML(content);
     }
   }, [content]);
 

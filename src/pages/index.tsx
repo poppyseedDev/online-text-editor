@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { convertDocToText } from '@/lib/convertDocToText';
+import { convertFileToText } from '@/lib/convertDocToText';
 import FileInput from '@/components/FileInput';
 import QuillEditor from '@/components/QuillEditor';
 
@@ -10,7 +10,7 @@ const Home = () => {
   const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      const text = await convertDocToText(file);
+      const text = await convertFileToText(file);
       setContent(text);
     }
   };
